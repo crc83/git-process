@@ -23,13 +23,10 @@ module Octokit
     def connection(authenticate=true, raw=false, version=3, force_urlencoded=false)
       if site
         url = site
+      elsif version == 2
+        url = "https://github.com"
       else
-        case version
-        when 2
-          url = "https://github.com"
-        when 3
-          url = "https://api.github.com"
-        end
+        url = "https://api.github.com"
       end
 
       options = {

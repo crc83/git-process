@@ -224,12 +224,12 @@ module GitProc
 
 
     def stash_save
-      command(:stash, ['save'])
+      command(:stash, %w(save))
     end
 
 
     def stash_pop
-      command(:stash, ['pop'])
+      command(:stash, %w(pop))
     end
 
 
@@ -238,7 +238,7 @@ module GitProc
     end
 
 
-    def checkout(branch_name, opts = {}, &block)
+    def checkout(branch_name, opts = {})
       args = []
       args << '--no-track' if opts[:no_track]
       args << '-b' if opts[:new_branch]
@@ -282,7 +282,7 @@ module GitProc
 
     def config(key = nil, value = nil, global = false)
       if key and value
-        args = global ? ['--global'] : []
+        args = global ? %w(--global) : []
         args << key << value
         command(:config, args)
         config_hash[key] = value unless config_hash.empty?
@@ -329,7 +329,7 @@ module GitProc
             raise "!@remote_name.is_a? String" unless @remote_name.is_a? String
           end
         end
-        logger.debug {"Using remote name of '#{@remote_name}'"}
+        logger.debug {"Using remote name of '#@remote_name'"}
       end
       @remote_name
     end
@@ -419,25 +419,25 @@ module GitProc
 
       out = nil
       if chdir and (Dir.getwd != path)
-        Dir.chdir(path) { out = run_command(git_cmd, &block) } 
+        Dir.chdir(path) { out = run_command(git_cmd, &block) }
       else
         out = run_command(git_cmd, &block)
       end
-      
+
       if logger
         logger.debug(git_cmd)
         logger.debug(out)
       end
-            
+
       if $?.exitstatus > 0
         if $?.exitstatus == 1 && out == ''
           return ''
         end
-        raise GitProc::GitExecuteError.new(git_cmd + ':' + out.to_s) 
+        raise GitProc::GitExecuteError.new(git_cmd + ':' + out.to_s)
       end
       out
     end
-    
+
 
     def run_command(git_cmd, &block)
       if block_given?

@@ -65,8 +65,8 @@ module GitProc
 
       parking_branch = mybranches['_parking_']
       if parking_branch
-        if (parking_branch.is_ahead_of(remote_master.name) and
-            !current_branch.contains_all_of(parking_branch.name))
+        if parking_branch.is_ahead_of(remote_master.name) and
+            !current_branch.contains_all_of(parking_branch.name)
 
           parking_branch.rename('_parking_OLD_')
 

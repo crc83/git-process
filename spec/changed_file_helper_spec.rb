@@ -20,7 +20,7 @@ describe GitProc::ChangeFileHelper do
   include GitRepoHelper
 
   before(:each) do
-    create_files(['.gitignore'])
+    create_files(%w(.gitignore))
     gitprocess.commit('initial')
   end
 

@@ -42,7 +42,7 @@ module GitProc
 
       post_parse(opts, argv)
 
-      if (DEBUG)
+      if DEBUG
         puts "\n\n#{opts.map{|k,v| "#{k}:#{v}"}.join(', ')}"
         puts "\nargs: #{argv.join(', ')}"
       end
@@ -82,16 +82,13 @@ module GitProc
     end
 
 
+    #noinspection RubyUnusedLocalVariable
     def extend_opts(parser)
       # extension point - does nothing by default
     end
 
 
-    # def extend_args(argv)
-    #   # extension point - does nothing by default
-    # end
-
-
+    #noinspection RubyUnusedLocalVariable
     def post_parse(opts, argv)
       # extension point - does nothing by default
     end

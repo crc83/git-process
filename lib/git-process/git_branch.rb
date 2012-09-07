@@ -18,7 +18,7 @@ module GitProc
     attr_reader :name
 
     def initialize(name, current, lib)
-      if (/^remotes\// =~ name)
+      if /^remotes\// =~ name
         @name = name[8..-1]
         @remote = true
       else
