@@ -13,8 +13,9 @@
 require 'git-process/git_lib'
 require 'git-process/git_rebase_error'
 require 'git-process/git_merge_error'
-require 'highline/import'
+#require 'highline/import'
 
+# TODO: highline was commented. I must verify these changes
 
 module GitProc
 
@@ -23,7 +24,6 @@ module GitProc
 
     def initialize(dir, opts = {})
       @log_level = Process.log_level(opts)
-
       set_workdir(dir)
     end
 
@@ -50,6 +50,7 @@ module GitProc
     def set_workdir(dir)
       if !dir.nil?
         @workdir = find_workdir(dir)
+        #@workdir = nil
         if @workdir.nil?
           @workdir = dir
           logger.info { "Initializing new repository at #{workdir}" }
@@ -162,7 +163,7 @@ module GitProc
 
 
     def find_workdir(dir)
-      if dir == File::SEPARATOR
+      if dir == File.expand_path("#{dir}/..")
         nil
       elsif File.directory?(File.join(dir, '.git'))
         dir

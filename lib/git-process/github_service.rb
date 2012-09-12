@@ -10,9 +10,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.require 'shellwords'
 
-require 'highline/import'
+#require 'highline/import'
+require "rubygems/user_interaction"
 require 'git-process/github_client'
 require 'uri'
+
+# TODO: highline was commented. I must verify these changes
+
+include Gem::UserInteraction
 
 
 module GitHubService
@@ -112,9 +117,11 @@ module GitHubService
     unless @user
       user = lib.config('github.user')
       if user.nil? or user.empty?
-        user = ask("Your <%= color('GitHub', [:bold, :blue]) %> username: ") do |q|
-          q.validate = /^\w\w+$/
-        end
+        #user = ask("Your <%= color('GitHub', [:bold, :blue]) %> username: ") do |q|
+        #  q.validate = /^\w\w+$/
+        #end
+
+        user = ask("Your <%= color('GitHub', [:bold, :blue]) %> username: ")
         lib.config('github.user', user)
       end
       @user = user
@@ -125,10 +132,12 @@ module GitHubService
 
   def password
     unless @password
-      @password = ask("Your <%= color('GitHub', [:bold, :blue]) %> password: ") do |q|
-        q.validate = /^\S\S+$/
-        q.echo = 'x'
-      end
+      #@password = ask("Your <%= color('GitHub', [:bold, :blue]) %> password: ") do |q|
+      #  q.validate = /^\S\S+$/
+      #  q.echo = 'x'
+      #end
+      @password = ask("Your <%= color('GitHub', [:bold, :blue]) %> password: ")
+
     end
     @password
   end

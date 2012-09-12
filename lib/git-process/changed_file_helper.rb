@@ -11,8 +11,9 @@
 # limitations under the License.require 'shellwords'
 
 require 'git-process/git_lib'
-require 'highline/import'
+#require 'highline/import'
 
+# TODO: highline was commented. I must verify these changes
 
 module GitProc
 

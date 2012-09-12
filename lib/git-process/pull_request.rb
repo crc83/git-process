@@ -12,8 +12,9 @@
 
 require 'git-process/git_process'
 require 'git-process/github_pull_request'
-require 'highline/import'
+#require 'highline/import'
 
+# TODO: highline was commented. I must verify these changes
 
 module GitProc
 

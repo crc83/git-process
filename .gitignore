@@ -19,3 +19,4 @@ tmp
 *.ipr
 *.iws
 .rakeTasks
+test_report
