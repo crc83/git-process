@@ -5,7 +5,7 @@ gemspec = Gem::Specification.new do |gem|
   gem.email         = ["moore.jim@gmail.com"]
   gem.description   = %q{A set of scripts to make working with git easier and more consistent}
   gem.summary       = %q{A set of scripts for a good git process}
-  gem.homepage      = "http://jdigger.github.com/git-process/"
+  gem.homepage      = "https://github.com/halyph/git-process"
   gem.license       = 'ASL2'
 
   gem.add_dependency "octokit", "~> 1.4.0" # GitHub API
