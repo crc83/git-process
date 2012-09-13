@@ -1,5 +1,6 @@
-require 'git-process/git_lib'
-require 'GitRepoHelper'
+require "spec_helper"
+#require 'git-process/git_lib'
+#require 'GitRepoHelper'
 
 describe GitProc::GitLib do
 

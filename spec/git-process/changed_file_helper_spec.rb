@@ -1,5 +1,6 @@
+require "spec_helper"
 require 'git-process/sync'
-require 'GitRepoHelper'
+#require 'GitRepoHelper'
 
 module GitProc
 

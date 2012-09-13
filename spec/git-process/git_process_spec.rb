@@ -1,5 +1,6 @@
-require 'git-process/git_process'
-require 'GitRepoHelper'
+#require 'git-process/git_process'
+#require 'GitRepoHelper'
+require "spec_helper"
 require 'fileutils'
 
 describe GitProc::Process do

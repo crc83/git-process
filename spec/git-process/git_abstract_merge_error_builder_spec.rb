@@ -1,4 +1,5 @@
-require 'git-process/git_abstract_merge_error_builder'
+require "spec_helper"
+#require 'git-process/git_abstract_merge_error_builder'
 
 describe GitProc::AbstractMergeErrorBuilder do
 

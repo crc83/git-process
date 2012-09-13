@@ -1,5 +1,6 @@
-require 'git-process/git_status'
-require 'GitRepoHelper'
+require "spec_helper"
+#require 'git-process/git_status'
+#require 'GitRepoHelper'
 require 'fileutils'
 
 describe GitProc::GitStatus do

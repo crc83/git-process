@@ -1,4 +1,4 @@
-require 'FileHelpers'
+require 'spec_helper'
 require 'git-process/git_process'
 
 module GitRepoHelper
