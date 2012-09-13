@@ -12,8 +12,8 @@
 
 require 'git-process/git_lib'
 require 'git-process/git_process'
-require 'git-process/parked_changes_error'
-require 'git-process/uncommitted_changes_error'
+require 'git-process/error/parked_changes_error'
+require 'git-process/error/uncommitted_changes_error'
 require 'git-process/changed_file_helper'
 
 

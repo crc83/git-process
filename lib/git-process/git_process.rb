@@ -11,8 +11,8 @@
 # limitations under the License.require 'shellwords'
 
 require 'git-process/git_lib'
-require 'git-process/git_rebase_error'
-require 'git-process/git_merge_error'
+require 'git-process/error/git_rebase_error'
+require 'git-process/error/git_merge_error'
 #require 'highline/import'
 
 # TODO: highline was commented. I must verify these changes

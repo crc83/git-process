@@ -1,5 +1,5 @@
 require "spec_helper"
-require 'git-process/new_fb'
+#require 'git-process/new_fb'
 #require 'GitRepoHelper'
 
 describe GitProc::NewFeatureBranch do

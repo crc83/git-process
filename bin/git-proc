@@ -1,0 +1,7 @@
+#!/usr/bin/env jruby
+
+USAGE = <<-EOT
+sample git command written in jruby
+EOT
+
+puts USAGE

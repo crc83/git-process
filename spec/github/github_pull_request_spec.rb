@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'git-process/pull_request'
+#require 'git-process/pull_request'
 require 'webmock/rspec'
 require 'json'
 require 'octokit'

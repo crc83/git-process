@@ -1,4 +1,4 @@
-require 'git-process/github_service'
+#require 'git-process/github_service'
 require 'webmock/rspec'
 require 'json'
 require 'octokit'

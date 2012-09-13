@@ -1,5 +1,5 @@
 require "spec_helper"
-require 'git-process/rebase_to_master'
+#require 'git-process/rebase_to_master'
 #require 'GitRepoHelper'
 require 'webmock/rspec'
 require 'json'

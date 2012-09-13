@@ -10,7 +10,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.require 'shellwords'
 
-require 'git-process/abstract_error_builder'
+require_relative 'abstract_error_builder'
 require 'shellwords'
 
 module GitProc

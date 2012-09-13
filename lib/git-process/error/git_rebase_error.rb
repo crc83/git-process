@@ -10,18 +10,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.require 'shellwords'
 
-require 'git-process/git_abstract_merge_error_builder'
+require_relative 'git_abstract_merge_error_builder'
 
 module GitProc
 
-  class MergeError < GitProcessError
-    include AbstractMergeErrorBuilder
+  class RebaseError < GitProcessError
+    include GitProc::AbstractMergeErrorBuilder
 
     attr_reader :error_message, :lib
 
-    def initialize(merge_error_message, lib)
+    def initialize(rebase_error_message, lib)
       @lib = lib
-      @error_message = merge_error_message
+      @error_message = rebase_error_message
 
       msg = build_message
 
@@ -30,7 +30,7 @@ module GitProc
 
 
     def continue_command
-      'git commit'
+      'git rebase --continue'
     end
 
   end

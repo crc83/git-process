@@ -14,7 +14,7 @@ require 'logger'
 require 'git-process/git_branch'
 require 'git-process/git_branches'
 require 'git-process/git_status'
-require 'git-process/git_process_error'
+require 'git-process/error/git_process_error'
 
 
 class String

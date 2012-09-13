@@ -10,29 +10,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.require 'shellwords'
 
-require 'git-process/git_abstract_merge_error_builder'
+require_relative 'git_process_error'
 
 module GitProc
 
-  class RebaseError < GitProcessError
-    include GitProc::AbstractMergeErrorBuilder
-
-    attr_reader :error_message, :lib
-
-    def initialize(rebase_error_message, lib)
-      @lib = lib
-      @error_message = rebase_error_message
-
-      msg = build_message
-
-      super(msg)
+  class UncommittedChangesError < GitProcessError
+    def initialize()
+      super("There are uncommitted changes.\nPlease either commit your changes, or use 'git stash' to set them aside.")
     end
-
-
-    def continue_command
-      'git rebase --continue'
-    end
-
   end
 
 end

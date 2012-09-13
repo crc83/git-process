@@ -10,14 +10,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.require 'shellwords'
 
-require 'git-process/git_process_error'
+require_relative 'git_process_error'
 
 module GitProc
 
-  class UncommittedChangesError < GitProcessError
-    def initialize()
-      super("There are uncommitted changes.\nPlease either commit your changes, or use 'git stash' to set them aside.")
+  class ParkedChangesError < GitProcessError
+    include GitProc::AbstractErrorBuilder
+
+    attr_reader :error_message, :lib
+
+    def initialize(lib)
+      @lib = lib
+      msg = build_message
+      super(msg)
     end
+
+
+    def human_message
+      "You made your changes on the the '_parking_' branch instead of a feature branch.\n"+"Please rename the branch to be a feature branch."
+    end
+
+
+    def build_commands
+      ['git branch -m _parking_ my_feature_branch']
+    end
+
   end
 
 end

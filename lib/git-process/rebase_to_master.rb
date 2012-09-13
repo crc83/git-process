@@ -11,10 +11,10 @@
 # limitations under the License.require 'shellwords'
 
 require 'git-process/git_process'
-require 'git-process/git_rebase_error'
-require 'git-process/git_process_error'
-require 'git-process/parked_changes_error'
-require 'git-process/uncommitted_changes_error'
+require 'git-process/error/git_rebase_error'
+require 'git-process/error/git_process_error'
+require 'git-process/error/parked_changes_error'
+require 'git-process/error/uncommitted_changes_error'
 require 'git-process/github_pull_request'
 
 
