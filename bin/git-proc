@@ -1,7 +1,7 @@
-#!/usr/bin/env jruby
+#!/bin/sh
+# cmd-line helper
 
-USAGE = <<-EOT
-sample git command written in jruby
-EOT
+GIT_PROC="/d/MyProjects/_NewDevEdge/git_projects/git-process"
 
-puts USAGE
+jruby -I $GIT_PROC/lib $GIT_PROC/bin/cli-git-proc $@
+

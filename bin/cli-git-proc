@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+# run this in terminal
+# export PATH=$PATH:/d/MyProjects/_NewDevEdge/git_projects/git-process/bin
+
+require "git-process"
+
+USAGE = <<-EOT
+sample git command written in jruby
+EOT
+
+
+GitProc::CLI.start(ARGV)
