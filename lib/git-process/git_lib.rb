@@ -263,6 +263,10 @@ module GitProc
       command(:log, '--oneline').split(/\n/).length
     end
 
+    def log
+      command(:log, '--oneline')
+    end
+
 
     def remove(files, opts = {})
       args = []
