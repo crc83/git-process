@@ -50,7 +50,6 @@ module GitProc
     def set_workdir(dir)
       if !dir.nil?
         @workdir = find_workdir(dir)
-        #@workdir = nil
         if @workdir.nil?
           @workdir = dir
           logger.info { "Initializing new repository at #{workdir}" }
