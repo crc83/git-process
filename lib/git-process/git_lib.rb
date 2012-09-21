@@ -441,6 +441,9 @@ module GitProc
       end
       out
     end
+
+    alias :cmd :command
+    public :cmd
     
 
     def run_command(git_cmd, &block)
