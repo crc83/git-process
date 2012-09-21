@@ -66,6 +66,21 @@ module GitRepoHelper
   end
 
 
+  def clone_bare(remote_name = 'origin')
+    td = Dir.mktmpdir
+
+    logger.debug {"Cloning '#{tmpdir}' to '#{td}'"}
+
+    args = []
+    args << '--bare'
+    args << gitprocess.workdir
+    args << td
+
+    gitprocess.cmd(:clone, args)
+    gitprocess.add_remote(remote_name, td)
+    gitprocess.cmd(:remote, ['update'])
+  end
+
   def clone(branch='master', remote_name = 'origin', &block)
     td = Dir.mktmpdir
 

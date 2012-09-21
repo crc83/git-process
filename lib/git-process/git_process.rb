@@ -24,6 +24,9 @@ module GitProc
 
     def initialize(dir, opts = {})
       @log_level = Process.log_level(opts)
+      @init = true
+      @init = opts[:init] unless opts[:init].nil?
+     
       set_workdir(dir)
     end
 
@@ -46,14 +49,17 @@ module GitProc
       # extension point - does nothing by default
     end
 
+    def git_repo?
+      @init
+    end
 
-    def set_workdir(dir)
+    def set_workdir(dir)      
       if !dir.nil?
         @workdir = find_workdir(dir)
         if @workdir.nil?
           @workdir = dir
-          logger.info { "Initializing new repository at #{workdir}" }
-          command(:init)
+          logger.info { "Initializing new repository at #{workdir}" }          
+          command(:init) if @init          
         else
           logger.debug { "Opening existing repository at #{workdir}" }
         end
