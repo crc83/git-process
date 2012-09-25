@@ -31,14 +31,14 @@ module GitRepoHelper
   end
 
 
-  def create_files(file_names)
-    Dir.chdir(gitprocess.workdir) do |dir|
+  def create_files(file_names, lib = gitprocess)
+    Dir.chdir(lib.workdir) do |dir|
       file_names.each do |fn|
-        gitprocess.logger.debug {"Creating #{dir}/#{fn}"}
+        lib.logger.debug {"Creating #{dir}/#{fn}"}
         FileUtils.touch fn
       end
     end
-    gitprocess.add(file_names)
+    lib.add(file_names)
   end
 
 
@@ -79,6 +79,8 @@ module GitRepoHelper
     gitprocess.cmd(:clone, args)
     gitprocess.add_remote(remote_name, td)
     gitprocess.cmd(:remote, ['update'])
+
+    td
   end
 
   def clone(branch='master', remote_name = 'origin', &block)
