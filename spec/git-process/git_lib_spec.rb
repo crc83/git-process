@@ -190,9 +190,4 @@ describe GitProc::GitLib do
 
   end
 
-  describe "#config" do
-    it "should store key/value"
-    it "should delete key/value"
-  end
-
 end
