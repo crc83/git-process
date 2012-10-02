@@ -144,7 +144,7 @@ describe GitProc::GitLib do
       lib.stub(:remote_name).and_return('remote')
       lib.stub(:config).and_return('master')
 
-      expect {lib.push('remote', nil, nil, :delete => 'master')}.should raise_error GitProc::GitProcessError
+      expect {lib.push('remote', nil, nil, :delete => 'master')}.to raise_error GitProc::GitProcessError
     end
 
   end
@@ -188,6 +188,11 @@ describe GitProc::GitLib do
       end
     end
 
+  end
+
+  describe "#config" do
+    it "should store key/value"
+    it "should delete key/value"
   end
 
 end
