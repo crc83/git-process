@@ -33,3 +33,4 @@ require 'git-process/sync'
 require 'git-process/new_fb'
 require 'git-process/rebase_to_master'
 require "git-process/cli"
+require "git-process/support/GitRepoHelper"
