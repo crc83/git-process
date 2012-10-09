@@ -1,4 +1,7 @@
-# CHANGELOG - 1.0.3 #
+# CHANGELOG - 1.0.4.1 #
+* Forked original git-process gem to re-use it in own project
+* Fixed/disabled some features
+* Refactored project structure
 
 ### Since 1.0.2 ###
 
