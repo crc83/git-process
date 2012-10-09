@@ -1,5 +1,3 @@
-[![Build Status](https://secure.travis-ci.org/jdigger/git-process.png)](http://travis-ci.org/jdigger/git-process)
-
 # Purpose #
 
 This provides an easy way to work with a sane git workflow process that encourages using highly-focussed branches to encourage collaboration, enable fearless changes, and improve team communication.
