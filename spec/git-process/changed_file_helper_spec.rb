@@ -53,7 +53,7 @@ describe GitProc::ChangeFileHelper do
 
       gp.merge('origin/master') rescue ''
 
-      expect {gp.offer_to_help_uncommitted_changes}.should raise_error GitProc::UncommittedChangesError
+      expect {gp.offer_to_help_uncommitted_changes}.to raise_error GitProc::UncommittedChangesError
     end
 
 

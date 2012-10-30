@@ -83,7 +83,7 @@ describe GitHub::PullRequest do
       stub_request(:get, /test_repo\/pulls\?access_token=/).
         to_return(:status => 200, :body => JSON([{:number => 1, :state => 'open', :html_url => 'test_url', :head => {:ref => 'test_head'}, :base => {:ref => 'test_base'}}]))
 
-      expect {pull_request.close('test_base', 'missing_head')}.should raise_error GitHub::PullRequest::NotFoundError
+      expect {pull_request.close('test_base', 'missing_head')}.to raise_error GitHub::PullRequest::NotFoundError
     end
 
   end
