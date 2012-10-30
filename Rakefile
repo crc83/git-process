@@ -16,3 +16,8 @@ task :test_report do
   sh "start test_report/report.html"
 end
 
+
+desc "Run sandbox"
+RSpec::Core::RakeTask.new(:box) do |t|
+  t.pattern = "./spec/**/git_execute_error_spec.rb"
+end

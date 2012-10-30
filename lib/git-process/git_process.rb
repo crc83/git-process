@@ -37,7 +37,7 @@ module GitProc
 
         runner
       rescue GitProc::GitProcessError => exp
-        puts exp.message
+        show_error_message(exp)
         exit(-1)
       ensure
         cleanup
@@ -47,6 +47,11 @@ module GitProc
 
     def runner
       # extension point - does nothing by default
+    end
+
+    # can be used as extention point to provide custom message output
+    def show_error_message(error)
+      puts error.message
     end
 
     def git_repo?

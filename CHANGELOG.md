@@ -1,7 +1,12 @@
-# CHANGELOG - 1.0.4.1 #
+# CHANGELOG - 1.0.4.2 #
+* Added command and error_message properties to GitProc::GitExecuteError
+* Added extention point to git_lib for error message customisation
+
+### Since 1.0.4.1 ###
 * Forked original git-process gem to re-use it in own project
 * Fixed/disabled some features
 * Refactored project structure
+
 
 ### Since 1.0.2 ###
 

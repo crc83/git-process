@@ -38,6 +38,17 @@ end
 module GitProc
 
   class GitExecuteError < GitProcessError
+    
+    attr_reader :command, :error_message
+
+    def initialize(command, message = '')
+      @command = command
+      @error_message = message
+
+      msg = command.dup
+      msg << ':' << message unless message.empty?      
+      super(msg)
+    end
   end
 
 
@@ -437,7 +448,7 @@ module GitProc
         if $?.exitstatus == 1 && out == ''
           return ''
         end
-        raise GitProc::GitExecuteError.new(git_cmd + ':' + out.to_s) 
+        raise GitProc::GitExecuteError.new(git_cmd, out.to_s) 
       end
       out
     end
