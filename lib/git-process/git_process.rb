@@ -13,7 +13,7 @@
 require 'git-process/git_lib'
 require 'git-process/error/git_rebase_error'
 require 'git-process/error/git_merge_error'
-#require 'highline/import'
+require 'rbconfig'
 
 # TODO: highline was commented. I must verify these changes
 
@@ -21,6 +21,8 @@ module GitProc
 
   class Process
     include GitLib
+
+    WINDOWS = RbConfig::CONFIG["host_os"] =~ %r!(msdos|mswin|djgpp|mingw)!
 
     def initialize(dir, opts = {})
       @log_level = Process.log_level(opts)
@@ -173,12 +175,20 @@ module GitProc
 
 
     def find_workdir(dir)
-      if dir == File::SEPARATOR
+      if dir == top_level_dir(dir)
         nil
       elsif File.directory?(File.join(dir, '.git'))
         dir
       else
         find_workdir(File.expand_path("#{dir}/.."))
+      end
+    end
+
+    def top_level_dir(dir)
+      if WINDOWS
+        File.expand_path("#{dir}/..")
+      else
+        File::SEPARATOR
       end
     end
 
