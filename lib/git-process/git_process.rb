@@ -173,7 +173,7 @@ module GitProc
 
 
     def find_workdir(dir)
-      if dir == File.expand_path("#{dir}/..")
+      if dir == File::SEPARATOR
         nil
       elsif File.directory?(File.join(dir, '.git'))
         dir

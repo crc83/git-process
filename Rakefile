@@ -19,5 +19,5 @@ end
 
 desc "Run sandbox"
 RSpec::Core::RakeTask.new(:box) do |t|
-  t.pattern = "./spec/**/git_execute_error_spec.rb"
+  t.pattern = "./spec/**/git_process_spec.rb"
 end
