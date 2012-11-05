@@ -1,4 +1,7 @@
-# CHANGELOG - 1.0.4.2 #
+# CHANGELOG - 1.0.4.3 #
+* Fixed cross-platform bug related with top level dir in git_process (deep recusion,  SystemStackError:stack level too deep)
+
+### Since 1.0.4.2 ###
 * Added command and error_message properties to GitProc::GitExecuteError
 * Added extention point to git_lib for error message customisation
 
